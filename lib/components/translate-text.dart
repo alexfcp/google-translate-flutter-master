@@ -53,11 +53,7 @@ class _TranslateTextState extends State<TranslateText> {
                 ),
                 ActionButton(
                   imageIcon: AssetImage("assets/pen.png"),
-                  text: "Handwriting",
-                ),
-                ActionButton(
-                  imageIcon: AssetImage("assets/conversation.png"),
-                  text: "Conversation",
+                  text: "Chat",
                 ),
                 ActionButton(
                   icon: Icons.keyboard_voice,
