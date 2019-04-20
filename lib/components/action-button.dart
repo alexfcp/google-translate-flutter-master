@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_translate/screens/home-page.dart';
 
 class ActionButton extends StatefulWidget {
   ActionButton({Key key, this.icon, this.text, this.imageIcon})
@@ -43,7 +44,10 @@ class _ActionButtonState extends State<ActionButton> {
           top: 2.0,
           bottom: 2.0,
         ),
-        onPressed: () {},
+        onPressed: () { Navigator.push(
+              context,
+              new MaterialPageRoute(builder: (context) => new SecondScreen()),
+            );},
         child: Column(
           children: <Widget>[
             _displayIcon(),

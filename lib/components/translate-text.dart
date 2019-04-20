@@ -67,3 +67,14 @@ class _TranslateTextState extends State<TranslateText> {
     );
   }
 }
+
+
+/* 
+SimpleDialogOption(
+            onPressed: () { Navigator.push(
+              context,
+              new MaterialPageRoute(builder: (context) => new SecondScreen()),
+            );},
+            child: const Text('Chat Room'),
+          ) 
+          */

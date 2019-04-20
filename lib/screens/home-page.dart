@@ -6,6 +6,7 @@ import '../components/list-translate.dart';
 import '../components/translate-input.dart';
 import '../models/language.dart';
 
+import 'dart:async';
 import 'package:http/http.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
@@ -98,19 +99,8 @@ class _HomePageState extends State<HomePage>
         ),
       ),
       body:
-
-      Column(
+      new Column(
         children: <Widget>[
-
-          SimpleDialogOption(
-          onPressed: () { Navigator.push(
-          context,
-          new MaterialPageRoute(builder: (context) => new SecondScreen()),
-          );},
-        child: const Text('Chat Room'),
-        ),
-
-
           ChooseLanguage(
             onLanguageChanged: this._onLanguageChanged,
           ),
@@ -158,87 +148,99 @@ class SecondScreen extends StatefulWidget {
 }
 
 class SecondScreenState extends State<SecondScreen> {
+  String url = 'http://localhost:3000';
   String serverResponse = '';
   String userName = '';
   String chatMessage = '';
   @override
   Widget build (BuildContext context) {
     return new Scaffold(
-        appBar: new AppBar(
-          title: new Text("Welcome to Chat Room"),
-        ),
-        body: new Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            new Expanded(
-              child: new Container (
-                padding: new EdgeInsets.all(8.0),
-                color: new Color(0XFFD6E5FF),
-                child: new Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    new Text(serverResponse),
-                  ],
-                ),
+      appBar: new AppBar(
+        title: new Text("Welcome to Chat Room"),
+      ),
+      body: new Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          new Expanded(
+            child: new Container (
+              padding: new EdgeInsets.all(8.0),
+              color: new Color(0XFFD6E5FF),
+              child: new Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  new Text(serverResponse),
+                ],
               ),
             ),
-            new Container(
-                child: new Row(
-                  children: [
-                    Container(
-                      width: 70.0,
-                      child: new TextField(
-                        onChanged:  (text) {
-                          userName = text;
-                        },
-                        decoration: new InputDecoration(
-                            filled: true,
-                            fillColor: Colors.grey[300],
-                            hintText: 'Name'),
-                        autofocus: true,
-                      ),
-                      alignment: Alignment.centerLeft,
-                    ),
-                    Flexible(
-                      child: new TextField(
-                        onChanged:  (text) {
-                          chatMessage = text;
-                        },
-                        decoration: new InputDecoration(
-                            filled: true,
-                            fillColor: Colors.grey[300],
-                            hintText: 'Enter chat here...'),
-                        autofocus: true,
-                      ),
-                    ),
-                    Container(
-                      width: 90.0,
-                      child: SimpleDialogOption(
-                        onPressed: () {
-                          _makeGetRequest();
-                        },
-                        child: const Text('Send'),
-                      ),
-                      alignment: Alignment.centerRight,
-                    ),
-                  ],
-                )
-            ),
-            bottomBanner,
-          ],
-        )
+          ),
+          new Container(
+            child: new Row(
+              children: [
+                Container(
+                  width: 70.0,
+                  child: new TextField(
+                    onChanged:  (text) {
+                      userName = text;
+                    },
+                    decoration: new InputDecoration(
+                      filled: true, 
+                      fillColor: Colors.grey[300], 
+                      hintText: 'Name'),
+                    autofocus: true,
+                  ),
+                  alignment: Alignment.centerLeft,
+                ),
+                Flexible(
+                  child: new TextField(
+                    onChanged:  (text) {
+                      chatMessage = text;
+                    },
+                    decoration: new InputDecoration(
+                      filled: true, 
+                      fillColor: Colors.grey[300], 
+                      hintText: 'Enter chat here...'),
+                    autofocus: true,
+                  ),
+                ),
+                Container(
+                  width: 90.0,
+                  child: SimpleDialogOption(
+                    onPressed: () {
+                      _makeGetRequest();
+                    },
+                    child: const Text('Send'),
+                  ),
+                  alignment: Alignment.centerRight,
+                ),
+              ],
+            )
+          ),
+          bottomBanner,
+        ],
+      )
     );
   }
   _makeGetRequest() async {
-    var url = 'http://localhost:3000';
     post(url, body: userName + ": " + chatMessage)
-        .then((response) {
-      print("Response status: ${response.statusCode}");
-      print("Response body: ${response.body}");
-      setState(() {
-        serverResponse = response.body;
-      });
+      .then((response) {
+        print("Response status: ${response.statusCode}");
+        print("Response body: ${response.body}");
+          setState(() {
+            serverResponse = response.body;
+          });
+    });
+    const time = const Duration(milliseconds:100);
+    new Timer.periodic(time, (Timer t) => _updateMessage());
+  }
+  _updateMessage() async {
+    post(url, body: "?")
+      .then((response) {
+        print("Response status: ${response.statusCode}");
+        print("Response body: ${response.body}");
+          setState(() {
+            serverResponse = response.body;
+          });
     });
   }
 }

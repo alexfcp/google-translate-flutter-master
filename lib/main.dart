@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Google Translate',
+      title: 'Translate',
       theme: ThemeData(
         primarySwatch: Colors.red,
         primaryColor: Colors.grey[600],
