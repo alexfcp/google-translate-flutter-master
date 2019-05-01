@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "38080950717",
+    "firebase_url": "https://comp680project-78b56.firebaseio.com",
+    "project_id": "comp680project-78b56",
+    "storage_bucket": "comp680project-78b56.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38080950717:android:1c7540012f5f84cb",
+        "android_client_info": {
+          "package_name": "com.applichic.translate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38080950717-p792v2ric1sqn450fbui48tme6b7q423.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBefxbL0w4jCJLQyWgCXlfruMUzCvPJ6kk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38080950717-p792v2ric1sqn450fbui48tme6b7q423.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

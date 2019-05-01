@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         primaryColor: Colors.grey[600],
       ),
-      home: HomePage(title: 'Google Translate'),
+      home: HomePage(title: 'Translate'),
     );
   }
 }

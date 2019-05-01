@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_translate/screens/home-page.dart';
 
-class ActionButton extends StatefulWidget {
-  ActionButton({Key key, this.icon, this.text, this.imageIcon})
+class VoiceButton extends StatefulWidget {
+  VoiceButton({Key key, this.icon, this.text, this.imageIcon})
       : super(key: key);
 
   final IconData icon;
@@ -10,10 +10,10 @@ class ActionButton extends StatefulWidget {
   final String text;
 
   @override
-  _ActionButtonState createState() => _ActionButtonState();
+  _VoiceButtonState createState() => _VoiceButtonState();
 }
 
-class _ActionButtonState extends State<ActionButton> {
+class _VoiceButtonState extends State<VoiceButton> {
 
   Widget _displayIcon() {
     if (this.widget.icon != null) {
@@ -44,10 +44,7 @@ class _ActionButtonState extends State<ActionButton> {
           top: 2.0,
           bottom: 2.0,
         ),
-        onPressed: () { Navigator.push(
-              context,
-              new MaterialPageRoute(builder: (context) => new SecondScreen()),
-            );},
+        onPressed: () { },
         child: Column(
           children: <Widget>[
             _displayIcon(),

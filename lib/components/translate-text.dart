@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'action-button.dart';
+import 'camera-button.dart';
+import 'chat-button.dart';
+import 'voice-button.dart';
+
 
 class TranslateText extends StatefulWidget {
   TranslateText({Key key, this.onTextTouched}) : super(key: key);
@@ -47,15 +50,15 @@ class _TranslateTextState extends State<TranslateText> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                ActionButton(
+                CameraButton(
                   icon: Icons.camera_alt,
                   text: "Camera",
                 ),
-                ActionButton(
+                ChatButton(
                   imageIcon: AssetImage("assets/pen.png"),
                   text: "Chat",
                 ),
-                ActionButton(
+                VoiceButton(
                   icon: Icons.keyboard_voice,
                   text: "Voice",
                 ),
