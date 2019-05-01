@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_translate/screens/home-page.dart';
+import '../components/camera_type.dart';
+
 
 class CameraButton extends StatefulWidget {
   CameraButton({Key key, this.icon, this.text, this.imageIcon})
@@ -44,7 +46,10 @@ class _CameraButtonState extends State<CameraButton> {
           top: 2.0,
           bottom: 2.0,
         ),
-        onPressed: () { },
+        onPressed: () { Navigator.push(
+          context,
+          new MaterialPageRoute(builder: (context) => new FlutterVisionApp()),
+        ); },
         child: Column(
           children: <Widget>[
             _displayIcon(),
