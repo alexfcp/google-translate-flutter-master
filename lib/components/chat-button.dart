@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_translate/screens/home-page.dart';
-import '../components/main.dart';
+import '../components/login.dart';
 
 
 class ChatButton extends StatefulWidget {
@@ -48,7 +48,7 @@ class _ChatButtonState extends State<ChatButton> {
         ),
         onPressed: () { Navigator.push(
             context,
-            new MaterialPageRoute(builder: (context) => new MainScreen()),
+            new MaterialPageRoute(builder: (context) => new MyAppChat()),
         ); },
         child: Column(
           children: <Widget>[

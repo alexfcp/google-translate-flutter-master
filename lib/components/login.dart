@@ -9,7 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class MyApp extends StatelessWidget {
+class MyAppChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

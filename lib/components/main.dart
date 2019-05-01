@@ -217,7 +217,7 @@ class MainScreenState extends State<MainScreen> {
     });
 
     Navigator.of(context)
-        .pushAndRemoveUntil(MaterialPageRoute(builder: (context) => MyApp()), (Route<dynamic> route) => false);
+        .pushAndRemoveUntil(MaterialPageRoute(builder: (context) => MyAppChat()), (Route<dynamic> route) => false);
   }
 
   @override
